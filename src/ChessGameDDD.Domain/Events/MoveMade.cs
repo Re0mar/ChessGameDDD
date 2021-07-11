@@ -2,7 +2,7 @@
 
 namespace ChessGameDDD.Events
 {
-    internal class MoveMadeEvent : Event
+    public class MoveMadeEvent : Event
     {
         public Move Move { get; set; }
     }

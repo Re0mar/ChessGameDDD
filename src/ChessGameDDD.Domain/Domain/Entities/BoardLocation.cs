@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ChessGameDDD.Domain.Domain.Entities
+﻿namespace ChessGameDDD.Domain.Domain.Entities
 {
     public class BoardLocation
     {

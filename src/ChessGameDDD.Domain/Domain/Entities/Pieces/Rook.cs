@@ -2,7 +2,7 @@
 
 namespace ChessGameDDD.Domain.Entities.Pieces
 {
-    internal class Rook : Piece
+    public class Rook : Piece
     {
         internal override bool CanMakeMove(Move move, Board board)
         {

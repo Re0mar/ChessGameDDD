@@ -1,6 +1,9 @@
 ﻿using ChessGameDDD.Domain.Domain.Entities;
 using ChessGameDDD.Domain.Entities;
+using ChessGameDDD.Domain.Entities.Pieces;
 using ChessGameDDD.Domain.tests.Contexts;
+using ChessGameDDD.Events;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace ChessGameDDD.Domain.tests.StepDefinitions
@@ -18,7 +21,17 @@ namespace ChessGameDDD.Domain.tests.StepDefinitions
         [Given(@"there is a board with a rook on '(.*)'")]
         public void GivenThereIsABoardWithARookOn(BoardLocation boardLocation)
         {
-            movePieceContext.Board = Board.Create();
+            var events = new List<Event>();
+            events.Add(new MoveMadeEvent
+            {
+                Move = new Move
+                {
+                    ToLocation = boardLocation
+                },
+                Piece = new Rook()
+            });
+
+            movePieceContext.Game = Game.Create(events);
         }
     }
 }

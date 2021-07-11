@@ -1,5 +1,7 @@
 ﻿using ChessGameDDD.Domain.Core;
+using ChessGameDDD.Domain.Domain.Entities;
 using ChessGameDDD.Events;
+using System;
 using System.Collections.Generic;
 
 namespace ChessGameDDD.Domain.Entities
@@ -7,13 +9,18 @@ namespace ChessGameDDD.Domain.Entities
     public class Move
         : ValueObject
     {
-        public string Rank { get; set; }
-        public int File { get; set; }
+        public BoardLocation StartLocation { get; set; }
+        public BoardLocation ToLocation { get; set; }
 
         protected override IEnumerable<object> GetAtomicValues()
         {
-            yield return Rank;
-            yield return File;
+            yield return StartLocation;
+            yield return ToLocation;
+        }
+
+        public override string ToString()
+        {
+            return StartLocation.ToString() + " -> " + ToLocation.ToString();
         }
 
         internal Event MapToMoveMade()

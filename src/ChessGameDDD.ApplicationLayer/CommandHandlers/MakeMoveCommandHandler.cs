@@ -26,6 +26,7 @@ namespace ChessGameDDD.ApplicationLayer.CommandHandlers
 
             // persist events
             // Save to database (Infrastructure layer)
+            var eventsToSave = game.GetEvents();
 
             // publsih events
             // MessagePublisher.publish(game.GetEvents());

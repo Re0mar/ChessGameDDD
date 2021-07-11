@@ -2,7 +2,7 @@
 
 namespace ChessGameDDD
 {
-    internal class BusinessRuleViolationException : Exception
+    public class BusinessRuleViolationException : Exception
     {
         public BusinessRuleViolationException(string message)
             : base(message)
