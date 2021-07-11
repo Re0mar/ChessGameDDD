@@ -8,31 +8,21 @@ namespace ChessGameDDD.Domain.Entities
 {
     public class Game : AggregateRoot<Guid>
     {
-        private Board Board;
+        private Board Board = Board.Create();
 
-        private Game() :
-            base(Guid.NewGuid())
+        private Game(List<Event> events) :
+            base(Guid.NewGuid(), events)
         {
         }
 
         public static Game Create(List<Event> oldEvents)
         {
-            var game = new Game()
-            {
-                Board = Board.Create()
-            };
-
-            foreach (var @event in oldEvents)
-            {
-                game.When(@event);
-            }
-
-            return game;
+            return new Game(oldEvents);
         }
 
         public void MakeMove(Move move)
         {
-            var pieceToMove = Board.GetPieceToMove(move/*.startPosition*/);
+            var pieceToMove = Board.GetPieceToMove(move.FromLocation);
 
             // Check business rules
             move.IsAllowed(Board, pieceToMove);

@@ -21,7 +21,7 @@ namespace ChessGameDDD.Domain.Entities
             return new Board();
         }
 
-        internal Piece GetPieceToMove(Move move)
+        internal Piece GetPieceToMove(BoardLocation boardLocation)
         {
             return new Rook();
         }

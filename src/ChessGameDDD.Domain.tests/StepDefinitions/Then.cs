@@ -21,7 +21,7 @@ namespace ChessGameDDD.Domain.tests.StepDefinitions
         {
             foreach (var moveToCheck in moves)
             {
-                moveToCheck.Move.StartLocation = _context.PieceLocationToMove;
+                moveToCheck.Move.FromLocation = _context.PieceLocationToMove;
                 try
                 {
                     _context.Game.MakeMove(moveToCheck.Move);

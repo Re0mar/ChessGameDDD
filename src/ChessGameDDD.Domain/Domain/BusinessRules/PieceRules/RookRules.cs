@@ -7,11 +7,11 @@ namespace ChessGameDDD.Domain.BusinessRules.PieceRules
     {
         internal static bool DirectionIsAllowed(this Rook piece, Move move)
         {
-            return (move.StartLocation.Rank == move.ToLocation.Rank &&
-                move.StartLocation.File != move.ToLocation.File) ||
+            return (move.FromLocation.Rank == move.ToLocation.Rank &&
+                move.FromLocation.File != move.ToLocation.File) ||
 
-                (move.StartLocation.Rank != move.ToLocation.Rank &&
-                move.StartLocation.File == move.ToLocation.File);
+                (move.FromLocation.Rank != move.ToLocation.Rank &&
+                move.FromLocation.File == move.ToLocation.File);
         }
     }
 }
