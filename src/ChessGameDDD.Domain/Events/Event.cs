@@ -5,7 +5,5 @@ namespace ChessGameDDD.Events
 {
     public class Event
     {
-        public BoardLocation PiecToLocation { get; set; }
-        public Piece Piece { get; set; }
     }
 }
