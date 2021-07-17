@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessGameDDD.UI", "ChessGameDDD.UI\ChessGameDDD.UI.csproj", "{E2F41DA0-F098-4C9E-B91A-D6328A36557D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessGameDDD.Domain.tests", "ChessGameDDD.Domain.tests\ChessGameDDD.Domain.tests.csproj", "{B2BB78B0-0748-4EB0-8F2E-FE39C4C7B31E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessGameDDD.Domain.Tests", "ChessGameDDD.Domain.tests\ChessGameDDD.Domain.Tests.csproj", "{B2BB78B0-0748-4EB0-8F2E-FE39C4C7B31E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessGameDDD.ApplicationLayer", "ChessGameDDD.ApplicationLayer\ChessGameDDD.ApplicationLayer.csproj", "{B6329167-DA4C-4BCD-8849-3155532DB39D}"
 EndProject

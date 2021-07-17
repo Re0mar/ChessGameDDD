@@ -1,4 +1,5 @@
 ﻿using ChessGameDDD.Domain.Domain.Entities;
+using ChessGameDDD.Domain.Domain.Entities.Pieces;
 using ChessGameDDD.Domain.Entities;
 using ChessGameDDD.Domain.Entities.Pieces;
 using ChessGameDDD.Domain.tests.Contexts;
@@ -31,7 +32,20 @@ namespace ChessGameDDD.Domain.tests.StepDefinitions
                 Piece = new Rook()
             });
 
-            movePieceContext.Game = Game.Create(events);
+            movePieceContext.Events = events;
+        }
+
+        [Given(@"there is a pawn on '(.*)'")]
+        public void GivenThereIsAPawnOn(BoardLocation boardLocation)
+        {
+            movePieceContext.Events.Add(new MoveMadeEvent
+            {
+                Move = new Move
+                {
+                    ToLocation = boardLocation
+                },
+                Piece = new Pawn()
+            });
         }
     }
 }
