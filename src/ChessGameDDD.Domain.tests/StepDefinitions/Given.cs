@@ -20,15 +20,12 @@ namespace ChessGameDDD.Domain.tests.StepDefinitions
         }
 
         [Given(@"there is a board with a rook on '(.*)'")]
-        public void GivenThereIsABoardWithARookOn(BoardLocation boardLocation)
+        public void GivenThereIsABoardWithARookOn(BoardLocation toLocation)
         {
             var events = new List<Event>();
             events.Add(new MoveMadeEvent
             {
-                Move = new Move
-                {
-                    ToLocation = boardLocation
-                },
+                Move = Move.Create(BoardLocation.Create("a1"), toLocation),
                 Piece = new Rook()
             });
 
@@ -36,14 +33,11 @@ namespace ChessGameDDD.Domain.tests.StepDefinitions
         }
 
         [Given(@"there is a pawn on '(.*)'")]
-        public void GivenThereIsAPawnOn(BoardLocation boardLocation)
+        public void GivenThereIsAPawnOn(BoardLocation toLocation)
         {
             movePieceContext.Events.Add(new MoveMadeEvent
             {
-                Move = new Move
-                {
-                    ToLocation = boardLocation
-                },
+                Move = Move.Create(BoardLocation.Create("a1"), toLocation),
                 Piece = new Pawn()
             });
         }

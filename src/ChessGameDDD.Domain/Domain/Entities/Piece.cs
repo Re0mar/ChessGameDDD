@@ -7,9 +7,8 @@
         //    throw new NotImplementedException();
         //}
 
-        internal virtual bool CanMakeMove(Move move, Board board)
+        internal virtual void CanMakeMove(Move move, Board board)
         {
-            return true;
         }
     }
 }

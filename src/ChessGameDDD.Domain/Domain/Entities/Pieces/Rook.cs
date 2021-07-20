@@ -4,11 +4,11 @@ namespace ChessGameDDD.Domain.Entities.Pieces
 {
     public class Rook : Piece
     {
-        internal override bool CanMakeMove(Move move, Board board)
+        internal override void CanMakeMove(Move move, Board board)
         {
-            return base.CanMakeMove(move, board) &&
-                this.DirectionIsAllowed(move) &&
-                this.MoveIsAllowedOnBoard(move, board);
+            base.CanMakeMove(move, board);
+            this.DirectionIsAllowed(move);
+            this.MoveIsAllowedOnBoard(move, board);
         }
     }
 }

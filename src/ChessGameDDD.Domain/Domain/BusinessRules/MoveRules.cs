@@ -8,10 +8,7 @@ namespace ChessGameDDD.Domain.BusinessRules
         {
             // If move is valid?
             // Can the piece make the move
-            if (!pieceToMove.CanMakeMove(move, board))
-            {
-                throw new BusinessRuleViolationException("Move is not possible");
-            }
+            pieceToMove.CanMakeMove(move, board);
         }
     }
 }

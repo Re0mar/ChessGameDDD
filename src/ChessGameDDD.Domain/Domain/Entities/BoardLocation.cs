@@ -1,7 +1,11 @@
-﻿namespace ChessGameDDD.Domain.Domain.Entities
+﻿using System.Linq;
+
+namespace ChessGameDDD.Domain.Domain.Entities
 {
     public class BoardLocation
     {
+        private static readonly char[] allowedRanks = { '1', '2', '3', '4', '5', '6', '7', '8' };
+        private static readonly char[] allowedFiles = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
         public char Rank { get; set; }
         public char File { get; set; }
 
@@ -11,10 +15,18 @@
 
         public static BoardLocation Create(string locationString)
         {
+            var file = locationString[0];
+            var rank = locationString[1];
+            if (!allowedRanks.Contains(rank) ||
+                !allowedFiles.Contains(file))
+            {
+                throw new BusinessRuleViolationException("Boardlocation is invalid");
+            }
+
             return new BoardLocation
             {
-                Rank = locationString[0],
-                File = locationString[1]
+                Rank = locationString[1],
+                File = locationString[0]
             };
         }
     }
