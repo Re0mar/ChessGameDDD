@@ -51,7 +51,7 @@ namespace ChessGameDDD.Domain.tests.Models
         {
             return new MoveToCheck
             {
-                Move = Move.Create(BoardLocation.Create("a1"), BoardLocation.Create(Convert.ToString(rank) + file)),
+                ToLocation = BoardLocation.Create(Convert.ToString(rank) + file),
                 ShouldBePossible = row[Convert.ToString(rank)].Equals("x")
             };
         }

@@ -1,4 +1,5 @@
-﻿using ChessGameDDD.Domain.tests.Contexts;
+﻿using ChessGameDDD.Domain.Entities;
+using ChessGameDDD.Domain.tests.Contexts;
 using ChessGameDDD.Domain.tests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
@@ -16,15 +17,14 @@ namespace ChessGameDDD.Domain.tests.StepDefinitions
             _context = movePieceContext;
         }
 
-        [Then(@"it can be moved in the following directions")]
+        [Then(@"it can be moved to the following locations")]
         public void ThenItCanBeMovedInTheFollowingDirections(IEnumerable<MoveToCheck> moves)
         {
             foreach (var moveToCheck in moves)
             {
-                moveToCheck.Move.FromLocation = _context.PieceLocationToMove;
                 try
                 {
-                    _context.Game.MakeMove(moveToCheck.Move);
+                    _context.Game.MakeMove(Move.Create(_context.PieceLocationToMove, moveToCheck.ToLocation));
                     Assert.IsTrue(moveToCheck.ShouldBePossible);
                 }
                 catch (BusinessRuleViolationException)

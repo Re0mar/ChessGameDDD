@@ -7,7 +7,7 @@ Scenario: Moving direction of a rook
 
 	Given there is a board with a rook on 'd5'
 	When I want to move the piece on 'd5'
-	Then it can be moved in the following directions
+	Then it can be moved to the following locations
 		|   | a | b | c | d | e | f | g | h |
 		| 1 | . | . | . | x | . | . | . | . |
 		| 2 | . | . | . | x | . | . | . | . |
@@ -25,7 +25,7 @@ Scenario: Moving direction with other pieces
 	Given there is a board with a rook on 'd5'
 	And there is a pawn on 'd3'
 	When I want to move the piece on 'd5'
-	Then it can be moved in the following directions
+	Then it can be moved to the following locations
 		|   | a | b | c | d | e | f | g | h |
 		| 1 | . | . | . | . | . | . | . | . |
 		| 2 | . | . | . | . | . | . | . | . |
