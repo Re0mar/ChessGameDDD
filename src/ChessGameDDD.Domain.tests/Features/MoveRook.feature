@@ -1,5 +1,5 @@
 ﻿Feature: Move a rook
-	A rook piece moving actions on a chess boards
+	A rook piece making a move on the chess board.
 
 @Rook
 Scenario: Moving direction of a rook

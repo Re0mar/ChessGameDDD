@@ -3,6 +3,7 @@ using ChessGameDDD.Domain.Domain.Entities;
 using ChessGameDDD.Domain.Entities.Pieces;
 using ChessGameDDD.Events;
 using System;
+using System.Collections.Generic;
 
 namespace ChessGameDDD.Domain.Entities
 {
@@ -16,7 +17,7 @@ namespace ChessGameDDD.Domain.Entities
             boardSetup = new BoardLocation[8, 8];
         }
 
-        public static Board Create()
+        internal static Board Create()
         {
             return new Board();
         }
@@ -30,6 +31,19 @@ namespace ChessGameDDD.Domain.Entities
         {
             // set piece to location
             // not needed yet
+        }
+
+        internal IEnumerable<Piece> GetPiecesBetweenMoveLocations(Move move)
+        {
+            var fromBoardLocation = ParseLocation(move.FromLocation);
+            var toBoardLocation = ParseLocation(move.ToLocation);
+
+            return null;
+        }
+
+        private BoardLocation ParseLocation(BoardLocation fromLocation)
+        {
+            return boardSetup[fromLocation.File - 97, fromLocation.Rank - 49];
         }
     }
 }

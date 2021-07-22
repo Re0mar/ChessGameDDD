@@ -1,5 +1,6 @@
 ﻿using ChessGameDDD.Domain.Entities;
 using ChessGameDDD.Domain.Entities.Pieces;
+using System.Collections.Generic;
 
 namespace ChessGameDDD.Domain.BusinessRules.PieceRules
 {
@@ -14,12 +15,10 @@ namespace ChessGameDDD.Domain.BusinessRules.PieceRules
             }
         }
 
-        internal static bool MoveIsAllowedOnBoard(this Rook piece, Move move, Board board)
+        public static void MoveIsAllowedOnBoard(this Rook piece, Move move, Board board)
         {
             // check if move jumps over other piece
-            //List<Piece> piecesBetweenMove = board.GetPiecesBetweenMoveLocations(move);
-
-            return false;
+            var piecesBetweenMove = board.GetPiecesBetweenMoveLocations(move);
         }
     }
 }
