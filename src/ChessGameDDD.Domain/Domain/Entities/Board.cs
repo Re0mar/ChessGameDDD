@@ -38,12 +38,17 @@ namespace ChessGameDDD.Domain.Entities
             var fromBoardLocation = ParseLocation(move.FromLocation);
             var toBoardLocation = ParseLocation(move.ToLocation);
 
-            return null;
+            // GetPieces between from and to location
+            return GetPiecesBetweenLocation(fromBoardLocation, toBoardLocation);
         }
 
         private BoardLocation ParseLocation(BoardLocation fromLocation)
         {
             return boardSetup[fromLocation.File - 97, fromLocation.Rank - 49];
+        }
+
+        private IEnumerable<Piece> GetPiecesBetweenLocation(BoardLocation fromBoardLocation, BoardLocation toBoardLocation)
+        {
         }
     }
 }
