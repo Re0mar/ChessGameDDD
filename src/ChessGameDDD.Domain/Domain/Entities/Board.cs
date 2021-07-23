@@ -9,12 +9,12 @@ namespace ChessGameDDD.Domain.Entities
 {
     public class Board : Entity<Guid>
     {
-        private BoardLocation[,] boardSetup;
+        private BoardCell[,] boardSetup;
 
         private Board()
             : base(Guid.NewGuid())
         {
-            boardSetup = new BoardLocation[8, 8];
+            boardSetup = new BoardCell[8, 8];
         }
 
         internal static Board Create()
@@ -43,6 +43,8 @@ namespace ChessGameDDD.Domain.Entities
 
             //// GetPieces between from and to location
             //return GetPiecesBetweenLocation(fromBoardLocation, toBoardLocation);
+
+            return null;
         }
 
         private int ParseFile(char file)
@@ -53,11 +55,6 @@ namespace ChessGameDDD.Domain.Entities
         private int ParseRank(char rank)
         {
             return rank - 49;
-        }
-
-        private BoardLocation ParseLocation(BoardLocation fromLocation)
-        {
-            return boardSetup[fromLocation.File - 97, fromLocation.Rank - 49];
         }
     }
 }

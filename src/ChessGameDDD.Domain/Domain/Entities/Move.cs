@@ -1,7 +1,6 @@
 ﻿using ChessGameDDD.Domain.Core;
 using ChessGameDDD.Domain.Domain.Entities;
 using ChessGameDDD.Events;
-using System;
 using System.Collections.Generic;
 
 namespace ChessGameDDD.Domain.Entities

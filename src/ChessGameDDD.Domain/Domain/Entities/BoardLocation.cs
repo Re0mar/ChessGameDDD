@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using ChessGameDDD.Domain.Core;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ChessGameDDD.Domain.Domain.Entities
 {
-    public class BoardLocation
+    public class BoardLocation : ValueObject
     {
         private static readonly char[] allowedRanks = { '1', '2', '3', '4', '5', '6', '7', '8' };
         private static readonly char[] allowedFiles = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
@@ -28,6 +30,12 @@ namespace ChessGameDDD.Domain.Domain.Entities
                 Rank = locationString[1],
                 File = locationString[0]
             };
+        }
+
+        protected override IEnumerable<object> GetAtomicValues()
+        {
+            yield return allowedFiles;
+            yield return allowedRanks;
         }
     }
 }

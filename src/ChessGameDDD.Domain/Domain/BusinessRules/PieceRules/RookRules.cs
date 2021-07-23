@@ -1,6 +1,7 @@
 ﻿using ChessGameDDD.Domain.Entities;
 using ChessGameDDD.Domain.Entities.Pieces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChessGameDDD.Domain.BusinessRules.PieceRules
 {
@@ -19,6 +20,8 @@ namespace ChessGameDDD.Domain.BusinessRules.PieceRules
         {
             // check if move jumps over other piece
             var piecesBetweenMove = board.GetPiecesBetweenMoveLocations(move);
+
+            //if piecesBetweenMove.Any() && piece.CanJumpOverPieces
         }
     }
 }
