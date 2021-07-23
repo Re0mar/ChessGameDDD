@@ -21,7 +21,7 @@ namespace ChessGameDDD.Domain.BusinessRules.PieceRules
             // check if move jumps over other piece
             var piecesBetweenMove = board.GetPiecesBetweenMoveLocations(move);
 
-            //if piecesBetweenMove.Any() && piece.CanJumpOverPieces
+            //if piecesBetweenMove.Any() && !piece.CanJumpOverPieces
         }
     }
 }
