@@ -25,7 +25,7 @@ namespace ChessGameDDD.Domain.tests.StepDefinitions
                 try
                 {
                     _context.Game.MakeMove(Move.Create(_context.PieceLocationToMove, moveToCheck.ToLocation));
-                    Assert.IsTrue(moveToCheck.ShouldBePossible);
+                    Assert.IsTrue(moveToCheck.ShouldBePossible, $"Move from {_context.PieceLocationToMove} to {moveToCheck.ToLocation}");
                 }
                 catch (BusinessRuleViolationException ex)
                 {

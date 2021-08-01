@@ -37,5 +37,10 @@ namespace ChessGameDDD.Domain.Domain.Entities
             yield return allowedFiles;
             yield return allowedRanks;
         }
+
+        public override string ToString()
+        {
+            return "" + File + Rank;
+        }
     }
 }

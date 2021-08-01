@@ -35,16 +35,23 @@ namespace ChessGameDDD.Domain.Entities
 
         internal IEnumerable<Piece> GetPiecesBetweenMoveLocations(Move move)
         {
-            var fromFileBoardLocation = ParseFile(move.FromLocation.File);
-            var fromRankBoardLocation = ParseRank(move.FromLocation.Rank);
+            var fromBoardCell = GetBoardcellByMoveLocation(move.FromLocation);
+            var toBoardCell = GetBoardcellByMoveLocation(move.ToLocation);
 
-            var toFileBoardLocation = ParseFile(move.ToLocation.File);
-            var toRankBoardLocation = ParseRank(move.ToLocation.Rank);
+            // GetPieces between from and to location
+            return GetPiecesBetweenLocation(fromBoardCell, toBoardCell);
+        }
 
-            //// GetPieces between from and to location
-            //return GetPiecesBetweenLocation(fromBoardLocation, toBoardLocation);
+        private IEnumerable<Piece> GetPiecesBetweenLocation(BoardCell fromBoardCell, BoardCell toBoardCell)
+        {
+            throw new NotImplementedException();
+        }
 
-            return null;
+        private BoardCell GetBoardcellByMoveLocation(BoardLocation location)
+        {
+            var fromFileBoardLocation = ParseFile(location.File);
+            var fromRankBoardLocation = ParseRank(location.Rank);
+            return boardSetup[fromFileBoardLocation, fromRankBoardLocation];
         }
 
         private int ParseFile(char file)
