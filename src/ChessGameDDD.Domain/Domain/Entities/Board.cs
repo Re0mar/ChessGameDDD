@@ -27,31 +27,25 @@ namespace ChessGameDDD.Domain.Entities
             return new Rook();
         }
 
-        internal void UpdateBoardPosition(MoveMadeEvent @event)
+        internal void UpdateBoardPosition(Move move)
         {
             // set piece to location
             // not needed yet
         }
 
-        internal IEnumerable<Piece> GetPiecesBetweenMoveLocations(Move move)
+        internal IEnumerable<BoardCell> GetPiecesBetweenMoveLocations(Move move)
         {
             var fromBoardCell = GetBoardcellByMoveLocation(move.FromLocation);
             var toBoardCell = GetBoardcellByMoveLocation(move.ToLocation);
 
-            // GetPieces between from and to location
-            return GetPiecesBetweenLocation(fromBoardCell, toBoardCell);
-        }
-
-        private IEnumerable<Piece> GetPiecesBetweenLocation(BoardCell fromBoardCell, BoardCell toBoardCell)
-        {
-            throw new NotImplementedException();
+            return null;
         }
 
         private BoardCell GetBoardcellByMoveLocation(BoardLocation location)
         {
-            var fromFileBoardLocation = ParseFile(location.File);
-            var fromRankBoardLocation = ParseRank(location.Rank);
-            return boardSetup[fromFileBoardLocation, fromRankBoardLocation];
+            var fileBoardLocation = ParseFile(location.File);
+            var rankBoardLocation = ParseRank(location.Rank);
+            return boardSetup[fileBoardLocation, rankBoardLocation];
         }
 
         private int ParseFile(char file)

@@ -1,4 +1,5 @@
 ﻿using ChessGameDDD.Domain.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,6 +9,7 @@ namespace ChessGameDDD.Domain.Domain.Entities
     {
         private static readonly char[] allowedRanks = { '1', '2', '3', '4', '5', '6', '7', '8' };
         private static readonly char[] allowedFiles = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
+
         public char Rank { get; set; }
         public char File { get; set; }
 

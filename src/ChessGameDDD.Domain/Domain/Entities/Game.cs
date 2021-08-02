@@ -25,6 +25,7 @@ namespace ChessGameDDD.Domain.Entities
             var pieceToMove = Board.GetPieceToMove(move.FromLocation);
 
             // Check business rules
+            pieceToMove.CanMakeMove(move, Board);
             move.IsAllowed(Board, pieceToMove);
 
             // Create event

@@ -1,7 +1,5 @@
 ﻿using ChessGameDDD.Domain.Entities;
 using ChessGameDDD.Domain.Entities.Pieces;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ChessGameDDD.Domain.BusinessRules.PieceRules
 {
